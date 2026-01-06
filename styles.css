@@ -940,3 +940,10 @@ video { max-width: 100%; display: block; }
     width: min(420px, 100%);
   }
 }
+/* Desktop: transición más lenta/suave */
+@media (min-width: 901px){
+  .reveal{
+    transform: translateY(22px);
+    transition-duration: 850ms;
+  }
+}
