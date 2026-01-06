@@ -891,21 +891,34 @@ video { max-width: 100%; display: block; }
   }
 }
 
-/* ---------- 5) SERVICES: “intro” de cada servicio más organizada en móvil ---------- */
-@media (max-width: 600px){
-  /* la cabecera de cada sección (Guardería/Hotel/...) como tarjeta */
-  .section-head{
-    padding: 14px 14px;
-    border-radius: 18px;
-    border: 1px solid rgba(15,23,42,0.10);
-    background: rgba(255,255,255,0.80);
-    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
-    backdrop-filter: blur(10px);
-  }
-  .section-head p{
-    max-width: 62ch;
-    margin-inline: auto;
-    line-height: 1.6;
-    text-wrap: pretty;
+/* ===========================
+   SCROLL REVEAL (fade + slide)
+   =========================== */
+.reveal{
+  opacity: 0;
+  transform: translateY(16px) scale(0.99);
+  filter: blur(2px);
+  transition:
+    opacity 650ms cubic-bezier(.2,.8,.2,1),
+    transform 650ms cubic-bezier(.2,.8,.2,1),
+    filter 650ms cubic-bezier(.2,.8,.2,1);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
   }
 }
+
