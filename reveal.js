@@ -1,14 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const selectors = [".section-head", ".card", ".feature", ".faq-item", ".step"];
-  const els = document.querySelectorAll(selectors.join(","));
+  const isDesktop = window.matchMedia("(min-width: 901px)").matches;
+
+  // Desktop: revela secciones completas
+  // Mobile: revela elementos individuales (cards, features, etc.)
+  const desktopSelectors = ["#instalaciones", "#servicios"];
+  const mobileSelectors  = [".section-head", ".card", ".feature", ".faq-item", ".step"];
+
+  const selectors = (isDesktop ? desktopSelectors : mobileSelectors).join(",");
+  const els = document.querySelectorAll(selectors);
   if (!els.length) return;
 
-  els.forEach((el, i) => {
-    el.classList.add("reveal");
-    el.style.setProperty("--d", `${Math.min(i * 55, 350)}ms`);
-  });
+  els.forEach((el) => el.classList.add("reveal"));
 
-  // Fallback por si algún navegador no soporta IntersectionObserver
   if (!("IntersectionObserver" in window)) {
     els.forEach((el) => el.classList.add("is-visible"));
     return;
