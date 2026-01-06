@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Villanimal’s — Servicios</title>
+
+    <!-- Conecta tu CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap"
+      rel="stylesheet"
+    >
+  </head>
+
+  <body>
+    <!-- NAV (opcional, ancla a secciones) -->
+    <nav class="topnav">
+      <div class="container nav-inner">
+        <a class="brand" href="#intro">Villanimal’s</a>
+        <div class="nav-links">
+          <a href="#instalaciones">Instalaciones</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#ofrecemos">Qué ofrecemos</a>
+          <a href="#como-reservar">Cómo reservar</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#faqs">FAQs</a>
+          <a class="btn btn--outline btn--sm" href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- S1: INTRO (video fondo, como ya lo tienes) -->
+    <header id="intro" class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="intro.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="kicker">GUARDERÍA · HOTEL · ENTRENAMIENTO · PELUQUERÍA</p>
+        <h1>Villanimal’s</h1>
+
+        <div class="hero-ctas">
+          <a class="hero-btn" href="services.html">Servicios</a>
+          <a
+            class="hero-btn"
+            href="https://wa.me/573112432393?text=Hola%20Villanimals%2C%20quiero%20reservar%20un%20servicio."
+          >Contacto</a>
+          <a class="hero-btn" href="#faqs">FAQs</a>
+        </div>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge">Capacidad <strong>Cupos limitados</strong></span>
+        <span class="badge">Respuesta <strong>&lt; 2 horas</strong></span>
+        <span class="badge">Enfoque <strong>Bienestar + rutina</strong></span>
+      </div>
+    </header>
+
+    <!-- S2: NUESTRAS INSTALACIONES -->
+    <section id="instalaciones" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Nuestras instalaciones</h2>
+          <p>Espacios limpios, seguros y pensados para juego + descanso</p>
+        </header>
+
+        <div class="grid grid-3">
+          <article class="card card--media">
+            <img src="inst1.jpg" alt="Patio de juego">
+            <div class="card-body">
+              <h3>Patio de juego</h3>
+              <p>Zonas amplias y controladas para socialización + areas de descanso</p>
+            </div>
+          </article>
+
+          <article class="card card--media">
+            <img src="inst2.jpg" alt="Área de descanso">
+            <div class="card-body">
+              <h3>Piscina</h3>
+              <p>Zona de natacion + zona verde + zonas de sombra y relajación</p>
+            </div>
+          </article>
+
+          <article class="card card--media">
+            <img src="inst3.jpg" alt="Hotel">
+            <div class="card-body">
+              <h3>Hotel</h3>
+              <p>Rutinas claras y reporte para que estés al tanto</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3: SERVICIOS -->
+    <section id="servicios" class="section section--soft">
+      <div class="container">
+        <header class="section-head">
+          <h2>Servicios</h2>
+          <p>Guardería, hotel, entrenamiento y peluquería con estándares premium.</p>
+        </header>
+
+        <div class="grid grid-4">
+          <article class="card card--service">
+            <img src="guardp.jpg" alt="Guardería">
+            <div class="card-body">
+              <h3>Guardería</h3>
+              <p>Juego supervisado, socialización y descanso. Cupos limitados.</p>
+              <a class="link" href="services.html">ver más</a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <img src="hotelp.jpg" alt="Hotel">
+            <div class="card-body">
+              <h3>Hotel</h3>
+              <p>Estadías cómodas y seguras, rutinas claras y reporte.</p>
+              <a class="link" href="services.html">ver más</a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <img src="trainp.jpg" alt="Entrenamiento">
+            <div class="card-body">
+              <h3>Entrenamiento</h3>
+              <p>Plan claro, refuerzo positivo y objetivos medibles.</p>
+              <a class="link" href="services.html">ver más</a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <img src="peluqp.jpg" alt="Peluquería">
+            <div class="card-body">
+              <h3>Peluquería</h3>
+              <p>Baño, corte y cuidado de piel/pelo con manejo amable.</p>
+              <a class="link" href="services.html">ver más</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4: QUÉ OFRECEMOS -->
+    <section id="ofrecemos" class="section">
+      <div class="container split">
+        <div class="split-media">
+          <img class="media" src="encasa2.jpg" alt="Perros felices">
+        </div>
+
+        <div class="split-content">
+          <h2>Un lugar donde tu perro se siente en casa</h2>
+          <p class="muted">Cuidado cercano, estructura y seguridad para que lo dejes tranquilo y lo recojas feliz.</p>
+
+          <div class="feature-list">
+            <div class="feature">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Supervisión real</h3>
+                <p>Grupos por energía/tamaño, descanso programado y ambiente controlado.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Rutina + bienestar</h3>
+                <p>Juego, enriquecimiento y calma. Ideal para perros activos o sensibles.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Comunicación</h3>
+                <p>Te contamos cómo va y qué recomendamos para casa (si lo deseas).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn--primary" href="#servicios">Ver servicios</a>
+            <a class="btn btn--outline" href="#faqs">Ver FAQs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4.2: PASO A PASO -->
+    <section id="como-reservar" class="reserve-full">
+      <video class="reserve-full__video" autoplay muted loop playsinline>
+        <source src="dogs.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+      </video>
+
+      <div class="reserve-full__shade"></div>
+
+      <div class="reserve-full__content">
+        <header class="reserve-full__head">
+          <h2>Cómo reservar</h2>
+        </header>
+
+        <ol class="reserve-full__steps">
+          <li class="step">
+            <a class="step__tag" href="#servicios">Servicios</a>
+            <div class="step__title">Elige tu plan</div>
+          </li>
+
+          <li class="step">
+            <a
+              class="step__tag"
+              href="https://wa.me/573112432393?text=Hola%20Villanimals%2C%20quiero%20confirmar%20disponibilidad."
+              target="_blank"
+              rel="noopener"
+            >Disponibilidad</a>
+            <div class="step__title">Escríbenos</div>
+          </li>
+
+          <li class="step">
+            <span class="step__tag step__tag--static">Listo</span>
+            <div class="step__title">Reserva confirmada</div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- S5: EQUIPO Y VALORES -->
+    <section id="equipo" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Equipo y valores</h2>
+          <p>
+            Nuestra motivación es poder ofrecer a las mascotas una mejor calidad de vida, un espacio para que puedan sentirse libres y felices con Supervisión, seguridad y sobre todo cariño genuino
+            <br>
+            <strong>A todos nuestros clientes y sus hijitos, gracias! por hacer parte de nuestra familia</strong>
+          </p>
+        </header>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-body">
+              <h3>Ricardo Rico</h3>
+              <p><strong>Fundador</strong> <br> Entrenador canino</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3>Coeth Perkuhn</h3>
+              <p><strong>Fundadora</strong> <br> Médico Veterinario</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <h3>Leidy Sierra</h3>
+              <p><strong>cuidadora</strong> <br> Auxiliar Veterinario</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6: FAQS (sin JS usando details/summary) -->
+    <section id="faqs" class="section section--soft">
+      <div class="container">
+        <header class="section-head">
+          <h2>FAQs</h2>
+          <p>Lo esencial, claro y directo.</p>
+        </header>
+
+        <div class="faq">
+          <details class="faq-item">
+            <summary>¿Qué necesito para la primera visita?</summary>
+            <div class="faq-body">
+              Carnet de vacunación y desparacitación al día, informacion de energía/tamaño, correa y comida para la estadía y cualquier indicación especial.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Cómo forman los grupos?</summary>
+            <div class="faq-body">Por energía, tamaño y compatibilidad. Priorizamos calma y seguridad.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Hay cupos limitados?</summary>
+            <div class="faq-body">Sí. Para mantener supervisión real y rutinas controladas.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7: CONTACTO -->
+    <footer id="contacto" class="contact-line">
+      <div class="container contact-inner">
+        <p>
+          <strong>Contacto:</strong> WhatsApp +57 311 243 2393 · villanimalsparque@gmail.com · villa de leyva, vereda el Roble, el Gomar
+        </p>
+        <a
+          class="btn btn--outline btn--sm"
+          href="https://wa.me/573112432393?text=Hola%20Villanimals%2C%20quiero%20reservar%20un%20servicio."
+        >Escribir</a>
+      </div>
+    </footer>
+  </body>
+</html>

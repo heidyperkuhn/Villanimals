@@ -1,0 +1,728 @@
+/* =========
+   ESTILO “más delicado y serio” (sin cambiarlo todo)
+   - menos “fluffy”: menos radio, menos sombra, más borde sutil
+   - tipografía más sobria: pesos y tracking moderados
+   ========= */
+
+:root{
+  --bg: #f7f9fc;
+  --soft: #eef5ff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: rgba(15, 23, 42, 0.10);
+  --shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 6px 16px rgba(15, 23, 42, 0.05);
+  --radius: 16px;        /* antes súper redondo -> ahora más serio */
+  --radius-sm: 12px;
+  --accent: #0f172a;     /* sobrio */
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+img{ max-width: 100%; display:block; }
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* NAV */
+.topnav{
+  position: sticky; top: 0;
+  z-index: 50;
+  background: rgba(247,249,252,0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 0;
+}
+.brand{
+  text-decoration:none;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.nav-links{
+  display:flex; gap: 18px; align-items:center;
+}
+.nav-links a{
+  text-decoration:none;
+  color: rgba(15,23,42,0.80);
+  font-weight: 600;
+  font-size: 14px;
+}
+.nav-links a:hover{ color: var(--text); }
+
+/* HERO (video) */
+/* HERO (video) */
+.hero{
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  justify-content: center;   /* <- asegura centrado horizontal */
+  align-items: center;       /* <- centrado vertical */
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15,23,42,0.55) 0%,
+    rgba(15,23,42,0.35) 55%,
+    rgba(15,23,42,0.20) 100%
+  );
+}
+
+/* Contenido centrado SIEMPRE */
+.hero-content{
+  position: relative;
+  z-index: 2;
+  width: min(1100px, 92%);  /* <- container aquí para que no dependa de .container */
+  margin: 0 auto;
+  padding: 72px 0 120px;    /* <- espacio abajo para badges */
+  color: #fff;
+  text-align: center;
+}
+
+.kicker{
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+}
+
+.hero h1{
+  margin: 0;
+  font-size: clamp(42px, 5vw, 68px);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Botones transparentes elegantes bajo el título */
+.hero-ctas{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.92);
+
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+
+  backdrop-filter: blur(10px);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.hero-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.13);
+  border-color: rgba(255,255,255,0.55);
+}
+
+.hero-btn:active{
+  transform: translateY(0);
+}
+
+/* Badges pegados al borde inferior del video */
+.hero-badges{
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: min(1100px, 92%);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 3;
+}
+
+
+/* (opcional) si en móvil se amontona mucho, baja un poco el padding */
+@media (max-width: 520px){
+  .hero-content{ padding: 56px 0 132px; }
+  .hero-badges{ bottom: 16px; }
+}
+
+/* SECCIONES */
+.section{ padding: 64px 0; }
+.section--soft{
+  background: var(--soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.section-head{
+  text-align:center;
+  margin-bottom: 26px;
+}
+.section-head h2{
+  margin: 0 0 8px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  letter-spacing: -0.02em;
+}
+.section-head p{
+  margin: 0 auto;
+  max-width: 720px;
+  color: var(--muted);
+}
+
+/* GRID */
+.grid{ display:grid; gap: 18px; }
+.grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid-4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 980px){
+  .grid-4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 820px){
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+/* CARDS (menos “fluffy”) */
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow:hidden;
+}
+.card-body{ padding: 16px 16px 18px; }
+.card h3{
+  margin: 0 0 6px;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.card p{ margin: 0; color: var(--muted); }
+
+.card--media img,
+.card--service img{
+  width:100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+/* Links sutiles */
+.link{
+  display:inline-block;
+  margin-top: 10px;
+  color: rgba(15,23,42,0.85);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link:hover{ color: var(--text); }
+
+/* Split layout (S4) */
+.split{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 26px;
+  align-items:center;
+}
+.split .media{
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 900px){
+  .split{ grid-template-columns: 1fr; }
+}
+
+.muted{ color: var(--muted); }
+
+/* Features (chips/lista) */
+.feature-list{ margin-top: 14px; display:grid; gap: 12px; }
+.feature{
+  display:flex; gap: 12px;
+  padding: 14px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.65);
+}
+.feature h4{ margin: 0 0 4px; font-size: 15px; }
+.feature p{ margin: 0; color: var(--muted); font-size: 14px; }
+.dot{
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.55);
+  margin-top: 6px;
+}
+
+/* Steps */
+.card--step{
+  padding: 16px;
+}
+.step-top{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 8px;
+}
+.step-n{
+  font-weight: 800;
+  color: rgba(15,23,42,0.25);
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+.pill{
+  width: 34px; height: 34px;
+  border-radius: 999px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.8);
+  color: rgba(15,23,42,0.65);
+}
+
+/* Badges arriba (más sobrios) */
+.badge{
+  display:inline-flex;
+  gap: 8px;
+  align-items:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.92);
+  font-size: 13px;
+}
+
+/* Botones (serios: outline limpio + primary sobrio) */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+  text-decoration:none;
+  border: 1px solid transparent;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+.btn--sm{ padding: 9px 14px; font-size: 12px; }
+.btn--primary{
+  background: rgba(255,255,255,0.92);
+  color: var(--accent);
+  border-color: rgba(255,255,255,0.35);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.18);
+}
+.btn--outline{
+  background: rgba(255,255,255,0.00);
+  color: #fff;
+  border-color: rgba(255,255,255,0.55);
+}
+.section .btn--outline{ /* outline en secciones claras */
+  color: var(--text);
+  border-color: rgba(15,23,42,0.22);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(15,23,42,0.14);
+}
+.btn:active{ transform: translateY(0); }
+
+/* FAQ */
+.faq{ max-width: 860px; margin: 0 auto; display:grid; gap: 12px; }
+.faq-item{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 2px 0;
+}
+.faq-item summary{
+  cursor:pointer;
+  padding: 14px 16px;
+  font-weight: 800;
+  color: rgba(15,23,42,0.92);
+}
+.faq-body{
+  padding: 0 16px 14px;
+  color: var(--muted);
+}
+
+/* Contact line */
+.contact-line{
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+.contact-inner{
+  padding: 16px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+.contact-inner p{
+  margin: 0;
+  color: rgba(15,23,42,0.78);
+}
+.bg-section{ position: relative; overflow:hidden; color:#fff; }
+
+.bg-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.bg-overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(15,23,42,0.55);
+}
+
+.bg-section > .container{
+  position: relative;
+  z-index: 1;
+}
+/* ===== Cómo reservar (lista elegante + foto, sin agrandar la sección) ===== */
+/* ===== Sección completa con video de fondo ===== */
+.reserve-full{
+  position: relative;
+  min-height: 520px;                 /* ajusta si quieres */
+  height: 70vh;                      /* ocupa toda la sección */
+  overflow: hidden;
+  border-top: 1px solid rgba(15,23,42,0.08);
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+}
+
+/* video full */
+.reserve-full__video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+/* sombra para legibilidad */
+.reserve-full__shade{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15,23,42,0.10) 0%,
+    rgba(15,23,42,0.18) 55%,
+    rgba(15,23,42,0.62) 100%
+  );
+}
+
+/* contenido encima del video */
+.reserve-full__content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: min(1100px, 92%);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;          /* todo abajo */
+  padding: 34px 0 22px;               /* espacio abajo para pasos */
+  color: #fff;
+}
+
+/* título arriba de los pasos, pero aún en la parte inferior */
+.reserve-full__head{
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.reserve-full__head h2{
+  margin: 0;
+  font-size: clamp(26px, 3vw, 40px);
+  letter-spacing: -0.02em;
+}
+
+.reserve-full__head p{
+  margin: 6px 0 0;
+  opacity: 0.9;
+}
+
+/* 3 pasos abajo sobre el video */
+.reserve-full__steps{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;                 /* en vez de grid */
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  counter-reset: rstep;          /* para numeración automática */
+}
+
+/* card glass delicada */
+.step{
+  counter-increment: rstep;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.28);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+.step::before{
+  content: counter(rstep);
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 800;
+  font-size: 12px;
+  color: rgba(255,255,255,0.92);
+
+  border: 1px solid rgba(255,255,255,0.30);
+  background: rgba(255,255,255,0.10);
+}
+
+/* el tag ya NO como “pill dentro de pill”; que sea texto limpio */
+.step__tag{
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  padding-bottom: 2px;
+}
+
+.step__tag:hover{
+  border-bottom-color: rgba(255,255,255,0.65);
+}
+
+.step__tag--static{
+  border-bottom-color: transparent;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.step__title{
+  margin: 0;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap; /* se ve “limpio” */
+}
+
+/* responsive: que no se rompa */
+@media (max-width: 860px){
+  .step__title{ white-space: normal; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Variante del hero usando imagen como fondo */
+.hero--photo{
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 35%;
+}
+
+/* En services no hay video, pero mantenemos compatibilidad */
+.hero--photo .hero-video{ display:none; }
+
+/* Ajuste de altura del hero foto */
+.hero--photo{
+  min-height: 52vh;
+}
+
+/* Botones pequeños en el hero (sin “bola gorda”) */
+.hero-actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Grid 3 (por si tu styles.css no lo trae) */
+.grid-3{
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+@media (max-width: 980px){
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+/* Kicker pequeño dentro de cards */
+.kicker-sm{
+  margin: 0 0 6px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(15,23,42,0.75);
+}
+
+/* Botón reservar centrado */
+.svc-actions{
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+/* ==========================================
+   RESPONSIVE (APLICA A INDEX + SERVICES)
+   Pegar AL FINAL del styles.css
+   ========================================== */
+
+body { overflow-x: hidden; }
+video { max-width: 100%; display: block; }
+
+/* 1) Tablet / pantallas medianas */
+@media (max-width: 720px){
+
+  /* Secciones un poco más compactas */
+  .section{ padding: 44px 0; }
+
+  /* NAV: que no reviente con muchos links */
+  .nav-inner{
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .nav-links{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links a{
+    padding: 8px 10px;   /* área táctil */
+  }
+
+  /* HERO */
+  .hero{ min-height: 64vh; }
+  .hero-content{ padding: 56px 0 124px; }
+
+  /* Badges más compactos */
+  .badge{
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+}
+
+/* 2) Celular */
+@media (max-width: 600px){
+
+  /* Margen lateral más consistente en celular */
+  .container{ width: calc(100% - 1.25rem); }
+
+  /* IMPORTANTÍSIMO: grid de 4 cards a 1 columna en celular */
+  .grid-4{ grid-template-columns: 1fr; }
+
+  /* Tipografía del hero más proporcional */
+  .hero h1{
+    font-size: clamp(34px, 10vw, 52px);
+  }
+
+  /* Botones: estilo “pro” en móvil (full width) */
+  .hero-btn,
+  .btn{
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-btn{ max-width: 420px; } /* evita que se vea gigante en pantallas grandes */
+
+  /* Sección “Cómo reservar” (video de fondo) */
+  .reserve-full{
+    min-height: 420px;
+    height: 62vh;
+  }
+  .reserve-full__content{
+    padding: 22px 0 16px;
+  }
+  .step__title{
+    font-size: 12.5px;
+  }
+}
+
+/* 3) FIX: botón outline en el footer blanco (si no, queda “invisible”) */
+.contact-line .btn--outline{
+  color: var(--text);
+  border-color: rgba(15,23,42,0.22);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
