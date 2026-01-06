@@ -726,3 +726,60 @@ video { max-width: 100%; display: block; }
   background: #fff;
   box-shadow: var(--shadow-sm);
 }
+/* ==========================================
+   MOBILE FIX (NAV + GRIDS + HERO)
+   Pegar al FINAL de styles.css
+   ========================================== */
+
+/* 1) NAV: compacto en móvil + links en 1 sola fila con scroll */
+@media (max-width: 720px){
+  .nav-inner{
+    flex-direction: column;            /* marca arriba, links abajo */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .nav-links{
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap !important;      /* evita que se parta en 2-3 filas */
+    overflow-x: auto;                  /* scroll horizontal */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding-bottom: 4px;
+    scrollbar-width: none;             /* Firefox */
+  }
+  .nav-links::-webkit-scrollbar{ display: none; } /* iOS/Safari/Chrome */
+
+  .nav-links a{
+    white-space: nowrap;               /* cada link en una sola línea */
+    font-size: 13px;
+  }
+
+  /* Botón contacto NO full-width y con menos tracking */
+  .nav-links .btn{
+    width: auto !important;
+    padding: 8px 12px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+}
+
+/* 2) GRIDS: en celular, 4 columnas -> 1 columna */
+@media (max-width: 600px){
+  .grid-4{ grid-template-columns: 1fr !important; }
+
+  /* HERO botones: que se vean “pro” y centrados */
+  .hero-ctas{
+    gap: 10px;
+  }
+  .hero-btn{
+    width: min(420px, 100%);  /* full pero con límite */
+    letter-spacing: 0.10em;   /* un poco menos para que no se vea raro */
+  }
+
+  /* Un poco menos de aire arriba/abajo */
+  .hero-content{ padding: 56px 0 110px; }
+}
