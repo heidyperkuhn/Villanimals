@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Desktop: revela secciones completas
   // Mobile: revela elementos individuales (cards, features, etc.)
-  const desktopSelectors = ["#instalaciones", "#servicios"];
+  const desktopSelectors = [".section"];
   const mobileSelectors  = [".section-head", ".card", ".feature", ".faq-item", ".step"];
 
   const selectors = (isDesktop ? desktopSelectors : mobileSelectors).join(",");
