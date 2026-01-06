@@ -1013,3 +1013,29 @@ video { max-width: 100%; display: block; }
     justify-self: center;
   }
 }
+/* Móvil: hero minimal (sin badges ni botones) */
+@media (max-width: 600px){
+  .hero-badges{ display: none !important; }  /* quita badges */
+  .hero-ctas{ display: none !important; }    /* quita botones */
+
+  /* Ajusta el espacio para que no quede “vacío” */
+  .hero-content{
+    padding: 78px 0 64px !important;
+    text-align: center;
+  }
+
+  .kicker{
+    margin-bottom: 10px;
+  }
+
+  .hero h1{
+    margin-bottom: 0;
+  }
+}
+/* Reveal más lento en celular */
+@media (max-width: 600px){
+  .reveal{
+    transition-duration: 950ms;  /* antes ~650ms */
+    transform: translateY(22px); /* un pelín más smooth */
+  }
+}
