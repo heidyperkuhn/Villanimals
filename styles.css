@@ -783,3 +783,129 @@ video { max-width: 100%; display: block; }
   /* Un poco menos de aire arriba/abajo */
   .hero-content{ padding: 56px 0 110px; }
 }
+/* =========================================================
+   MOBILE POLISH (INDEX + SERVICES)
+   Pegar AL FINAL de styles.css
+   ========================================================= */
+
+/* ---------- 1) FIX: “puntos corridos” en Qué ofrecemos ---------- */
+/* El problema era: en tu HTML usas h3 dentro de .feature,
+   pero tu CSS solo reseteaba márgenes de h4 -> h3 quedaba con margen default */
+.feature{
+  align-items: flex-start;
+}
+.feature h3,
+.feature h4{
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+.feature p{
+  margin: 0;
+}
+.dot{
+  flex: 0 0 10px;
+  margin-top: 10px; /* queda alineado con el título */
+}
+
+/* ---------- 2) Botones “no amontonados” en móvil ---------- */
+@media (max-width: 600px){
+  .actions{
+    display: grid;
+    gap: 12px;
+    justify-items: center;
+  }
+  .actions .btn{
+    width: min(420px, 100%);
+  }
+
+  /* Hero buttons también más “clean” */
+  .hero-ctas{
+    gap: 12px;
+  }
+  .hero-btn{
+    width: min(420px, 100%);
+    letter-spacing: 0.10em; /* menos separado = más fino en móvil */
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.34);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  }
+}
+
+/* ---------- 3) “Cajitas smooth” (glass) en móvil ---------- */
+@media (max-width: 600px){
+  .feature{
+    background: rgba(255,255,255,0.78);
+    border-color: rgba(15,23,42,0.10);
+    box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .card{
+    box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+  }
+}
+
+/* ---------- 4) SERVICES HERO: título abajo (no en la cara del perro) ---------- */
+/* Esto SOLO afecta el hero de services porque usa .hero--photo */
+@media (max-width: 600px){
+  .hero--photo{
+    align-items: flex-end !important;      /* baja el bloque de texto */
+    background-position: center 25%;       /* sube un poco el foco de la foto */
+    min-height: 56vh;                      /* un pelín más alto se ve premium */
+  }
+
+  /* overlay más fuerte abajo (para leer texto) */
+  .hero--photo .hero-overlay{
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.10) 0%,
+      rgba(0,0,0,0.35) 55%,
+      rgba(0,0,0,0.72) 100%
+    );
+  }
+
+  .hero--photo .hero-content{
+    padding: 18px 0 18px !important;       /* pega el contenido al fondo */
+  }
+
+  .hero--photo .kicker{
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+
+  .hero--photo h1{
+    margin-bottom: 10px;
+  }
+
+  /* botones en columna, con aire */
+  .hero--photo .hero-actions{
+    width: min(420px, 100%);
+    margin-inline: auto;
+    display: grid;
+    gap: 12px;
+  }
+  .hero--photo .hero-actions .btn{
+    width: 100%;
+  }
+}
+
+/* ---------- 5) SERVICES: “intro” de cada servicio más organizada en móvil ---------- */
+@media (max-width: 600px){
+  /* la cabecera de cada sección (Guardería/Hotel/...) como tarjeta */
+  .section-head{
+    padding: 14px 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(15,23,42,0.10);
+    background: rgba(255,255,255,0.80);
+    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+    backdrop-filter: blur(10px);
+  }
+  .section-head p{
+    max-width: 62ch;
+    margin-inline: auto;
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+}
